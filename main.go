@@ -7,15 +7,19 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	time2 "time"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	// Write "Hello, world!" to the response body
-	io.WriteString(w, "Hello, world!\n")
+	time := time2.Now()
+	text := "Hello world!" + time.String() + "\n"
+	io.WriteString(w, text)
 }
 
 func main() {
 	// Set up a /hello resource handler
+
 	http.HandleFunc("/hello", helloHandler)
 
 	// Create a CA certificate pool and add cert.pem to it
