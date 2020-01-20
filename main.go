@@ -14,6 +14,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	// Write "Hello, world!" to the response body
 	time := time2.Now()
 	text := "Hello world!\n" + time.String() + "\n"
+	text += "Remote IP:" + 	r.RemoteAddr + "\n"
+	text+= "Forwarded For:" + r.Header.Get("X-Forwarded-For") + "\n"
 	io.WriteString(w, text)
 }
 
