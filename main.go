@@ -13,7 +13,7 @@ import (
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	// Write "Hello, world!" to the response body
 	time := time2.Now()
-	text := "Hello world!" + time.String() + "\n"
+	text := "Hello world!\n" + time.String() + "\n"
 	io.WriteString(w, text)
 }
 
