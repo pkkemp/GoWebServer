@@ -16,7 +16,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	text := "Hello world!\n" + time.String() + "\n"
 	text += "Remote IP:" + 	r.RemoteAddr + "\n"
 	text+= "Forwarded For:" + r.Header.Get("X-Forwarded-For") + "\n"
-	text+= "Forwarding Protocol: " + r.Header.Get("X-Forwarded-Proto:") + "\n"
+	text+= "Forwarding Protocol: " + r.Header.Get("X-Forwarded-Proto") + "\n"
 	text+= "CDN Loop: " + r.Header.Get("CDN-Loop")
 	io.WriteString(w, text)
 }
