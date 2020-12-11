@@ -46,10 +46,11 @@ func main() {
 
 		// Create a Server instance to listen on port 8443 with the TLS config
 		server := &http.Server{
-			Addr:      ":8443",
-			TLSConfig: tlsConfig,
+			Addr:      ":80",
+			//TLSConfig: tlsConfig,
 		}
 
 		// Listen to HTTPS connections with the server certificate and wait
-		log.Fatal(server.ListenAndServeTLS("cert.pem", "key.pem"))
+		//log.Fatal(server.ListenAndServeTLS("cert.pem", "key.pem"))
+		log.Fatal(server.ListenAndServe())
 	}
